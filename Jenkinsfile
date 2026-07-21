@@ -14,9 +14,21 @@ pipeline {
             }
         }
 
-        stage('Run') {
+        stage('Run Java') {
             steps {
                 sh 'java app'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t java-demo .'
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                sh 'docker run --rm java-demo'
             }
         }
     }
