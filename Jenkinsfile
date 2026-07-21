@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'java App'
+                sh 'java app'
             }
         }
     }
